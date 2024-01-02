@@ -1,0 +1,126 @@
+:root {
+   --bg: #004225;
+   --primary: #fdef96;
+   --secondary: #f7b71d;
+   --tirtary: #afa939;
+ }
+ 
+ #quiz {
+   padding: 1rem;
+   height: auto;
+ }
+ 
+ .wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   flex-wrap: wrap;
+   flex-direction: column;
+ }
+ 
+ .choice-container {
+   display: flex;
+   margin-bottom: 0.5rem;
+   width: 70%;
+   height: auto;
+   font-size: 1.6rem;
+   border: 0.1rem solid rgba(187, 255, 0, 0.4);
+   background-color: var(--tirtary);
+   margin-bottom: 1rem;
+   transition: 0.5s;
+ }
+ 
+ .choice-container > p {
+   color: #202020;
+   text-align: left;
+ }
+ 
+ span {
+   width: 20%;
+   color: #202020;
+   font-weight: 500;
+ }
+ 
+ .choice-container:hover {
+   cursor: pointer;
+   box-shadow: 0 0.4rem 1.4rem 0 rgba(187, 255, 0, 0.6);
+   transform: translateY(-0.2rem);
+   transition: transform 150ms;
+ }
+ 
+ .choice-prefix {
+   padding: 1.5rem 2.5rem;
+   background-color: var(--secondary);
+ }
+ 
+ .choice-text {
+   padding: 1.5rem;
+   width: 100%;
+ }
+ 
+ .correct {
+   background-color: #28a745;
+ }
+ 
+ .incorrect {
+   background-color: #dc3545;
+ }
+ 
+ /* hud */
+ 
+ #hud {
+   margin-top: 1rem;
+   display: flex;
+   justify-content: space-around;
+ }
+ 
+ .hud-prefix {
+   text-align: center;
+   font-size: 2rem;
+ }
+ 
+ .hud-main-text {
+   text-align: center;
+ }
+
+ /* loader */
+
+ #loader {
+   border: 1.4rem solid #fff;
+   border-radius: 50%;
+   border-top: 1.4rem solid var(--secondary);
+   width: 10rem;
+   height: 10rem;
+   animation: spin 2s linear infinite;
+ }
+
+ @keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+ }
+ 
+ /* Media query for smaller screens (mobile) */
+ @media (max-width: 768px) {
+   *{
+      font-size: 0.7rem;
+   }
+   .choice-container > span {
+      font-size: 0.7rem;
+   }
+   .choice-container {
+     width: 95%;
+   }
+ }
+ 
+ /* Media query for larger screens (laptops) */
+ @media (min-width: 769px) {
+   .choice-container {
+     width: 50%;
+   }
+ }
+ 

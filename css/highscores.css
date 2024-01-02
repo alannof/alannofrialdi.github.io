@@ -1,0 +1,43 @@
+#highScoreList {
+   list-style-type: none;
+   padding-left: 0;
+   margin-bottom: 3rem;
+   text-align: center;
+}
+
+li {
+   padding: 5px;
+}
+
+h1 {
+   font-size: 4rem;
+   margin-bottom: 1rem;
+}
+
+.high-score {
+   font-size: 1.6rem;
+}
+
+.high-score:hover {
+   transform: scale(1.025);
+}
+
+@media (max-width: 768px) {
+   h1 {
+      font-size: 3rem;
+   }
+
+   .high-score {
+      font-size: 1.4rem;
+   }
+}
+
+@media (max-width: 576px) {
+   h1 {
+      font-size: 2.5rem;
+   }
+
+   .high-score {
+      font-size: 1.2rem;
+   }
+}

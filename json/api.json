@@ -1,0 +1,104 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "Which of the following presidents is not on Mount Rushmore?",
+      "choice": [
+         "Theodore Roosevelt",
+         "Abraham Lincoln",
+         "Thomas Jefferson",
+         "John F. Kennedy"
+       ],
+      "correct_answer": "John F. Kennedy",
+      "incorrect_answers": [
+        "Theodore Roosevelt",
+        "Abraham Lincoln",
+        "Thomas Jefferson"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "Who invented the first ever chocolate bar, in 1847?",
+      "choice": ["Andrew Johnson", "John Cadbury", "John Tyler", "Joseph Fry"],
+      "correct_answer": "Joseph Fry",
+      "incorrect_answers": ["Andrew Johnson", "John Cadbury", "John Tyler"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "What does the &quot;G&quot; mean in &quot;G-Man&quot;?",
+      "choice": ["Going", "Ghost", "Geronimo", "Government"],
+      "correct_answer": "Government",
+      "incorrect_answers": ["Going", "Ghost", "Geronimo"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "Linus Pauling, one of the only winners of multiple Nobel Prizes, earned his Nobel Prizes in Chemistry and what?",
+      "choice":  ["Physics", "Economics", "Physiology/Medicine", "Peace"],
+      "correct_answer": "Peace",
+      "incorrect_answers": ["Physics", "Economics", "Physiology/Medicine"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "What type of animal was Harambe, who was shot after a child fell into it&#039;s enclosure at the Cincinnati Zoo?",
+      "choice": ["Tiger", "Panda", "Crocodile", "Gorilla"],
+      "correct_answer": "Gorilla",
+      "incorrect_answers": ["Tiger", "Panda", "Crocodile"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "Which of these colours is NOT featured in the logo for Google?",
+      "choice": ["Yellow", "Blue", "Green", "Pink"],
+      "correct_answer": "Pink",
+      "incorrect_answers": ["Yellow", "Blue", "Green"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "What is the French word for &quot;hat&quot;?",
+      "choice": ["Bonnet", " &Eacute;charpe", " Casque", "Chapeau"],
+      "correct_answer": "Chapeau",
+      "incorrect_answers": ["Bonnet", " &Eacute;charpe", " Casque"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "What was the destination of the missing flight MH370?",
+      "choice": ["Kuala Lumpur", "Singapore", "Tokyo", "Beijing"],
+      "correct_answer": "Beijing",
+      "incorrect_answers": ["Kuala Lumpur", "Singapore", "Tokyo"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "According to the nursery rhyme, what fruit did Little Jack Horner pull out of his Christmas pie?",
+      "choice": ["Apple", "Peach", "Pear", "Plum"],
+      "correct_answer": "Plum",
+      "incorrect_answers": ["Apple", "Peach", "Pear"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "Rolex is a company that specializes in what type of product?",
+      "choice": ["Cars", "Computers", "Sports equipment", "Watches"],
+      "correct_answer": "Watches",
+      "incorrect_answers": ["Cars", "Computers", "Sports equipment"]
+    }
+  ]
+}
