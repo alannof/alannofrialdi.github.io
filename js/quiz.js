@@ -48,7 +48,7 @@ const startGame = () => {
 const getNewQuestion = () => {
   if (questionCounter >= MAX_QUESTION) {
     localStorage.setItem("mostRecentStore", score);
-    // Go to the end page
+    // Go to the end page 
     return window.location.assign("../html/end.html");
   }
 
