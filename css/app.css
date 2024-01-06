@@ -18,6 +18,8 @@
 
 body {
   background-color: var(--bg);
+  max-width: 100dvw;
+  max-height: 100dvh;
 }
 
 h1 {
@@ -207,28 +209,38 @@ form .button {
   transform: translateY(-30px);
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+/* Media query laptop and desk screens */
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: 90%;
   }
-
-  h2 {
-    font-size: 1.4rem;
+}
+/* tab */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 70%;
   }
-
-  h3 {
-    font-size: 1.2rem;
+}
+/* hp */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 55%;
   }
-
+  #question {
+    font-size: 1.6em;
+  }
+  .choice-prefix {
+    font-size: 1em;
+    text-align: center;
+  }
+  .choice-text {
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+  }
   .container {
-    padding: 1rem;
+    padding: 0.6rem;
   }
-
-  .button {
-    font-size: 1.2em;
-  }
-
   .form-control {
     width: 50%; /* Adjusted for responsiveness */
   }

@@ -2,8 +2,8 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
-const loader = document.getElementById('loader');
-const quiz = document.getElementById('quiz');
+const loader = document.getElementById("loader");
+const quiz = document.getElementById("quiz");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -13,16 +13,21 @@ const MAX_QUESTION = 10;
 
 let questions = [];
 
-fetch("../json/api.json").then(res => {
-  return res.json();
-}).then(loadedQuestions => {
-  questions = loadedQuestions.results;
-  startGame();
-  quiz.classList.remove('hidden')
-  loader.classList.add('hidden')
-}).catch(err => {
-  console.error(err)
-})
+fetch("../json/api.json")
+  .then((res) => {
+    return res.json();
+  })
+  .then((loadedQuestions) => {
+    questions = loadedQuestions.results;
+    setTimeout(() => {
+      quiz.classList.remove("hidden");
+      loader.classList.add("hidden");
+      startGame();
+    }, 1000);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 const CORRECT_BONUS = 10;
 
