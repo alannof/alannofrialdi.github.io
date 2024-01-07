@@ -6,6 +6,8 @@
 }
 
 #quiz {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   padding: 1rem;
   height: auto;
 }
@@ -96,7 +98,9 @@ span {
   border-top: 1.4rem solid var(--secondary);
   width: 10rem;
   height: 10rem;
-  animation: spin 2s linear infinite;
+  animation: spin 2.5s linear infinite;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes spin {
@@ -105,5 +109,41 @@ span {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+/* Media query laptop and desk screens */
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: 90%;
+  }
+}
+/* tab */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 70%;
+  }
+}
+/* hp */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 55%;
+  }
+  #question {
+    font-size: 1.6em;
+  }
+  .choice-prefix {
+    font-size: 1em;
+    text-align: center;
+  }
+  .choice-text {
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+  }
+  .container {
+    padding: 0.6rem;
+  }
+  .form-control {
+    width: 50%; /* Adjusted for responsiveness */
   }
 }

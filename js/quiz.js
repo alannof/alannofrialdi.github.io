@@ -2,38 +2,43 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
-const loader = document.getElementById("loader");
-const quiz = document.getElementById("quiz");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 const MAX_QUESTION = 10;
-
 let questions = [];
 
 fetch("../json/api.json")
-  .then((res) => {
-    return res.json();
-  })
-  .then((loadedQuestions) => {
+  .then(res => res.json())
+  .then(loadedQuestions => {
     questions = loadedQuestions.results;
-    setTimeout(() => {
-      quiz.classList.remove("hidden");
-      loader.classList.add("hidden");
-      startGame();
-    }, 1000);
   })
-  .catch((err) => {
+  .catch(err => {
     console.error(err);
   });
 
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("loader");
+  const quiz = document.getElementById("quiz");
+
+  setTimeout(() => {
+    preloader.style.opacity = 0;
+    quiz.style.opacity = 1;
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+      quiz.classList.remove("hidden");
+    }, 500);
+    startGame();
+  }, 2500);
+});
+
 const CORRECT_BONUS = 10;
 
-const shuffleArray = (array) => {
+const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
@@ -47,8 +52,7 @@ const startGame = () => {
 
 const getNewQuestion = () => {
   if (questionCounter >= MAX_QUESTION) {
-    localStorage.setItem("mostRecentStore", score);
-    // Go to the end page 
+    localStorage.setItem("mostRecentScore", score);
     return window.location.assign("../html/end.html");
   }
 
@@ -63,6 +67,7 @@ const getNewQuestion = () => {
     ...currentQuestion.incorrect_answers,
     currentQuestion.correct_answer,
   ]);
+
   choices.forEach((choice, index) => {
     choice.dataset["number"] = shuffledAnswers[index];
     choice.innerText = he.decode(`${shuffledAnswers[index]}`);
@@ -71,7 +76,7 @@ const getNewQuestion = () => {
   acceptingAnswers = true;
 };
 
-const handleChoiceClick = (e) => {
+const handleChoiceClick = e => {
   if (!acceptingAnswers) return;
 
   acceptingAnswers = false;
@@ -79,8 +84,8 @@ const handleChoiceClick = (e) => {
   const selectedAnswer = selectedChoice.dataset["number"];
   const correctAnswer = currentQuestion.correct_answer.toString();
 
-  const classToApply =
-    selectedAnswer === correctAnswer ? "correct" : "incorrect";
+  const classToApply = selectedAnswer === correctAnswer ? "correct" : "incorrect";
+
   console.log(classToApply);
   console.log(`correct: ${correctAnswer}, your answer: ${selectedAnswer}`);
 
@@ -91,16 +96,13 @@ const handleChoiceClick = (e) => {
       increamentScore(CORRECT_BONUS);
     }
     selectedChoice.parentElement.classList.remove(classToApply);
-
     getNewQuestion();
-  }, 750);
+  }, 800);
 };
 
-choices.forEach((choice) =>
-  choice.addEventListener("click", handleChoiceClick)
-);
+choices.forEach(choice => choice.addEventListener("click", handleChoiceClick));
 
-increamentScore = (num) => {
+const increamentScore = num => {
   score += num;
   scoreText.innerText = score;
 };

@@ -5,14 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Congrats!</title>
     <link rel="stylesheet" href="../css/app.css" />
+    <style>
+      /* loader */
+      .hidden {
+        display: none;
+      }
+      #loader {
+        border: 1.4rem solid #fff;
+        border-radius: 50%;
+        border-top: 1.4rem solid var(--secondary);
+        width: 10rem;
+        height: 10rem;
+        animation: spin 2.5s linear infinite;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+      #home {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div id="home" class="flex-center flex-column">
+      <div id="loader"></div>
+      <div id="home" class="flex-center flex-column hidden">
         <h1 id="finalScore"></h1>
-        <form action="">
+        <form action="" id="myForm">
           <div class="form-control">
-            <input type="text" id="username" required autocomplete="off"/>
+            <input type="text" id="username" required autocomplete="off" />
             <label>
               <span style="transition-delay: 0ms">U</span
               ><span style="transition-delay: 50ms">s</span
@@ -29,11 +59,12 @@
             class="button"
             id="saveScoreBtn"
             onclick="saveHighScore(event)"
-            disabled
           >
             <p>Save</p>
           </button>
-          <button class="button"><a href="../html/quiz.html">Play Again</a></button>
+          <button id="playAgain" class="button">
+            <a href="../html/quiz.html">Play Again</a>
+          </button>
           <button class="button"><a href="../app.html">Go Home</a></button>
         </form>
       </div>

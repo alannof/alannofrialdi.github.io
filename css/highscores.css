@@ -21,3 +21,39 @@ h1 {
 .high-score:hover {
    transform: scale(1.025);
 }
+/* Media query laptop and desk screens */
+@media only screen and (min-width: 1024px) {
+   html {
+     font-size: 90%;
+   }
+ }
+ /* tab */
+ @media only screen and (min-width: 768px) and (max-width: 1023px) {
+   html {
+     font-size: 70%;
+   }
+ }
+ /* hp */
+ @media only screen and (max-width: 767px) {
+   html {
+     font-size: 75%;
+   }
+   #question {
+     font-size: 1.6em;
+   }
+   .choice-prefix {
+     font-size: 1em;
+     text-align: center;
+   }
+   .choice-text {
+     font-weight: 500;
+     font-size: 1em;
+     text-align: center;
+   }
+   .container {
+     padding: 0.6rem;
+   }
+   .form-control {
+     width: 50%; /* Adjusted for responsiveness */
+   }
+ }
