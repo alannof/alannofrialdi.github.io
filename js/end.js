@@ -27,7 +27,7 @@ const handlePageLoad = () => {
       } else {
         alert("Congrats! Your grade is more than KKM.");
       }
-    }, 4000);
+    }, 3500);
   } else {
     console.error(
       "mostRecentScore is null. Check if it's set correctly in your code."

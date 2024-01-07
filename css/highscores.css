@@ -7,6 +7,8 @@
 
 li {
    padding: 5px;
+   text-transform: uppercase;
+   margin: 0;
 }
 
 h1 {
@@ -14,12 +16,16 @@ h1 {
    margin-bottom: 1rem;
 }
 
+a {
+  margin: 0;
+}
+
 .high-score {
    font-size: 1.6rem;
 }
 
 .high-score:hover {
-   transform: scale(1.025);
+   transform: scale(1.050);
 }
 /* Media query laptop and desk screens */
 @media only screen and (min-width: 1024px) {
@@ -36,24 +42,9 @@ h1 {
  /* hp */
  @media only screen and (max-width: 767px) {
    html {
-     font-size: 75%;
+     font-size: 55%;
    }
-   #question {
-     font-size: 1.6em;
-   }
-   .choice-prefix {
-     font-size: 1em;
-     text-align: center;
-   }
-   .choice-text {
-     font-weight: 500;
-     font-size: 1em;
-     text-align: center;
-   }
-   .container {
-     padding: 0.6rem;
-   }
-   .form-control {
-     width: 50%; /* Adjusted for responsiveness */
+   * {
+    font-size: 1.4rem;
    }
  }
