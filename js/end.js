@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 2500);
 });
-
-const mostRecentScore = localStorage.getItem("mostRecentScore");
-
 // Handle page load functionality
 const handlePageLoad = () => {
   const finalScore = document.getElementById("finalScore");
@@ -36,52 +33,49 @@ const handlePageLoad = () => {
 };
 
 const username = document.getElementById("username");
+const myForm = document.getElementById("myForm");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
+const finalScore = document.getElementById("finalScore");
+const mostRecentScore = localStorage.getItem("mostRecentScore");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const MAX_HIGH_SCORES = 5;
 
-// Enable/disable save button based on username input
-username.addEventListener("keyup", () => {
-  saveScoreBtn.disabled = !username.value.trim();
-});
+finalScore.innerText = `score: ${mostRecentScore}`;
 
-const playAgain = document.getElementById("playAgain");
+// validator
 
-// Event listener for play again button
-playAgain.onclick = () => confirm("Want to play again?");
-
-// Save high score function
-const saveHighScore = () => {
-  console.log("saveHighScore function is called");
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const validator = () => {
   const enteredName = username.value.trim();
-  const MAX_HIGH_SCORES = 5;
-  const scoreObject = { name: enteredName, score: mostRecentScore };
 
-  highScores.push(scoreObject);
-  highScores.sort((a, b) => b.score - a.score);
-  highScores.splice(MAX_HIGH_SCORES);
+  if (enteredName === "") {
+    alert("Please enter a name!");
+    return;
+  }
 
-  localStorage.setItem("highScores", JSON.stringify(highScores));
-  console.log("High score saved successfully");
+  const isDuplicate = highScores.some(
+    ({ name }) => name.toLowerCase() === enteredName.toLowerCase()
+  );
+
+  console.log(isDuplicate);
+
+  if (!isDuplicate) {
+    const score = {
+      name: enteredName,
+      score: mostRecentScore,
+    };
+
+    highScores.push(score);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(MAX_HIGH_SCORES);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.assign("/app.html");
+  } else {
+    alert(`${enteredName} already taken. Please enter another name!`);
+  }
 };
 
-// Event listener for save score button
-saveScoreBtn.addEventListener("click", (e) => {
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  const valueUserInput = username.value.trim();
-  const duplicate = highScores.find((person) => person.name === valueUserInput);
+myForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  // Check value
-  if (valueUserInput !== "") {
-    if (duplicate) {
-      alert("This name is already taken. Please choose a different one.");
-    } else {
-      saveHighScore();
-      console.log("Before window.location.assign");
-      window.location.assign("../app.html");
-      console.log("After window.location.assign");
-    }
-  } else {
-    alert("Invalid name!");
-  }
+  validator();
 });
